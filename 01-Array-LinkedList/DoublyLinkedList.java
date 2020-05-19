@@ -336,28 +336,4 @@ public class DoublyLinkedList {
         size += 1;
         return true;
     }
-
-    public static void main(String[] args) {
-        DoublyLinkedList m = new DoublyLinkedList();
-        m.print();
-        m.pushFront(3);
-        m.print();
-        m.init();
-        m.pushFront(3);
-        m.pushFront(4);
-        m.print();
-        m.init();
-        m.pushFront(3);
-        m.pushFront(4);
-        m.pushBack(5);
-        m.print();
-        m.pushFront(6);
-        m.pushFront(7);
-        m.pushBack(8);
-        m.print();
-        m.popBack();
-        m.print();
-        System.out.println(m.removeAt(3));
-        m.print();
-    }
 }
