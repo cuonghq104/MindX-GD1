@@ -1,10 +1,15 @@
-package heap;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Heap;
 
 /**
  *
  * @author dangvu.vn
  */
-public class MinHeap {
+public class MaxHeap {
 
     int[] values;
     int size;
@@ -14,7 +19,7 @@ public class MinHeap {
     final double EXPAND_THRESHOLD = 0.5;
     final double SHRINK_THRESHOLD = 0.75;
 
-    MinHeap() {
+    MaxHeap() {
         this.capacity = MIN_CAPACITY;
         values = new int[this.capacity];
     }
@@ -32,7 +37,7 @@ public class MinHeap {
         }
     }
 
-    public int extractMin() {
+    public int extractMax() {
         if (size == 0) {
             return -1;
         }
@@ -80,7 +85,7 @@ public class MinHeap {
         }
         
         if (rightChildIdx == size - 1) {
-            if (values[leftChildIdx] < values[checkPos]) {
+            if (values[leftChildIdx] > values[checkPos]) {
                 swap(leftChildIdx, checkPos);
                 return leftChildIdx;
             }
@@ -89,9 +94,9 @@ public class MinHeap {
         }
 
         if (values[checkPos] < values[leftChildIdx]
-                || values[checkPos] > values[rightChildIdx]) {
+                || values[checkPos] < values[rightChildIdx]) {
 
-            int shiftDownIdx = (values[leftChildIdx] < values[rightChildIdx])
+            int shiftDownIdx = (values[leftChildIdx] > values[rightChildIdx])
                     ? leftChildIdx : rightChildIdx;
 
             swap(checkPos, shiftDownIdx);
@@ -105,7 +110,7 @@ public class MinHeap {
         int parentValue = values[parentIdx(checkPos)];
         int currentValue = values[checkPos];
 
-        if (currentValue < parentValue) {
+        if (currentValue > parentValue) {
             swap(checkPos, parentIdx(checkPos));
         }
     }
@@ -119,5 +124,4 @@ public class MinHeap {
     private int parentIdx(int idx) {
         return (idx - 1) / 2;
     }
-
 }
