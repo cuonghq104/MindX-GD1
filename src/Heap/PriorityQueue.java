@@ -1,5 +1,7 @@
 package Heap;
 
+import java.util.Scanner;
+
 /**
  *
  * @author dangvu.vn
@@ -143,4 +145,5 @@ public class PriorityQueue {
     private int parentIdx(int idx) {
         return (idx - 1) / 2;
     }
+
 }
